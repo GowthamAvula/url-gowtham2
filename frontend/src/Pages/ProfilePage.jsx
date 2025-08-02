@@ -1,9 +1,9 @@
 import React,{useEffect,useState} from 'react'
-import Service from '../../utils/http'
-import { Avatar, Container, Stack } from '@mantine/core';
+import Service from '../utils/http'
+import { Avatar, Container, Stack,Text } from '@mantine/core';
 
 const service=new Service();
-const Profile=()=>{
+const ProfilePage=()=>{
 const [profileData,setProfileData]=useState(null);
 const getProfileData=async()=>{
     let data=await service.get('user/me');
@@ -24,11 +24,11 @@ return (
         <Text id="dd"> {profileData?.name}</Text>
         <Text>{profileData?.email}</Text>
         <Text id="gg"> <b>User Id :</b> {profileData?._id}</Text>
-        <Text id="hh"><b>Created Account At :</b>{profileData?.createdAt}</Text>
+        
     </Stack> 
     </Container>  
     
   )
 }
 
-export default  Profile
+export default  ProfilePage
